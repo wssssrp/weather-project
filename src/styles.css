@@ -1,0 +1,106 @@
+body {
+  margin: 58px 280px;
+  background-color: #fbfcff;
+}
+.container {
+  text-align: center;
+  border: 1px solid gainsboro;
+  border-radius: 20px;
+  box-shadow: 0 4px 4px 0 rgb(0 0 0 / 16%), 0 0 4px 1px rgb(0 0 0 / 8%);
+  padding: 10px 20px;
+  background: linear-gradient(
+    180deg,
+    rgb(208, 251, 166) 0%,
+    rgb(255, 255, 255) 100%
+  );
+}
+
+input {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid rgb(185, 184, 184);
+  outline: 0;
+  box-shadow: 2px 2px 4px rgb(231, 231, 231);
+  transition: all 0.3s ease-in;
+}
+
+h1 {
+  margin-top: 30px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 50px;
+  color: #005a38;
+  margin-left: 40px;
+}
+p {
+  font-size: 28px;
+  text-align: left;
+  color: #005a38;
+  margin-left: 50px;
+  font-weight: 500;
+}
+ul {
+  display: inline-block;
+  list-style: none;
+  font-size: 25px;
+  margin-top: 15px;
+}
+li {
+  margin: 30px 0px;
+  padding: 0px 30px 0px 0px;
+}
+.city-hints {
+  text-align: end;
+  margin-bottom: 8px;
+  font-size: 20px;
+  margin-right: 10px;
+}
+.cities {
+  padding: 5px;
+}
+.city-form {
+  font-size: 22px;
+}
+.search-button {
+  color: white;
+  background-color: #54a5f5;
+  border-radius: 20px;
+  border: 1px solid #54a5f5;
+}
+.search-button:hover {
+  background-color: #3e80c2;
+}
+.chosen-city {
+  font-family: "Alkalami", serif;
+  font-size: 45px;
+  text-transform: uppercase;
+}
+.location {
+  margin-top: -30px;
+  text-align: left;
+  color: #038151;
+  margin-left: 40px;
+}
+.lists {
+  margin: 50px 0px 30px 0px;
+}
+.temperature-today {
+  font-size: 25px;
+  padding: 10px;
+  font-style: italic;
+}
+.weather-list {
+  border-right: 1px solid rgb(212, 211, 211);
+}
+.week-day {
+  font-weight: 500;
+  font-style: italic;
+}
+.week-weather {
+  font-style: italic;
+}
+.city-form {
+  text-align: end;
+}
