@@ -42,6 +42,8 @@ function showTemp(response) {
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
   );
+  document.querySelector("#weather-description").innerHTML =
+    response.data.weather[0].description;
 }
 function searchCity(city) {
   let apiKey = "1dbf926d3b4417bf379db7043bec1047";
