@@ -50,6 +50,9 @@ function showTemp(response) {
       "src",
       `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
     );
+  document.querySelector("#wind-speed").innerHTML = Math.round(
+    response.data.wind.speed
+  );
 }
 function searchCity(city) {
   let apiKey = "81ob2btf7e18f4e07031046ab12afce1";
