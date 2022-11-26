@@ -41,7 +41,6 @@ function showTemp(response) {
   );
 }
 function searchCity(city) {
-  let apiKey = "81ob2btf7e18f4e07031046ab12afce1";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemp);
 }
@@ -52,7 +51,6 @@ function handleSubmit(event) {
 }
 
 function showPosition(position) {
-  let apiKey = "81ob2btf7e18f4e07031046ab12afce1";
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
@@ -103,14 +101,43 @@ let celsiusTemp = null;
 let cityForm = document.querySelector(".city-form");
 cityForm.addEventListener("submit", handleSubmit);
 
-let locationButton = document.querySelector("#location-button");
-locationButton.addEventListener("click", getGeolocation);
+let locationLink = document.querySelector("#location-link");
+locationLink.addEventListener("click", getGeolocation);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemp);
+
+function searchCityLondon() {
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=london&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemp);
+}
+let londonLink = document.querySelector("#london-link");
+londonLink.addEventListener("click", searchCityLondon);
+
+function searchCityWarsaw() {
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=warsaw&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemp);
+}
+let warsawLink = document.querySelector("#warsaw-link");
+warsawLink.addEventListener("click", searchCityWarsaw);
+
+function searchCityKyiv() {
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=kyiv&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemp);
+}
+let kyivLink = document.querySelector("#kyiv-link");
+kyivLink.addEventListener("click", searchCityKyiv);
+
+function searchCityLisbon() {
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=lisbon&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemp);
+}
+let lisbonLink = document.querySelector("#lisbon-link");
+lisbonLink.addEventListener("click", searchCityLisbon);
+let apiKey = "81ob2btf7e18f4e07031046ab12afce1";
 
 searchCity("Kyiv");
 displayForecast();

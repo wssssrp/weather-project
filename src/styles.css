@@ -65,7 +65,8 @@ a:hover {
   margin-right: 10px;
 }
 .cities {
-  padding: 5px;
+  color: black;
+  padding: 6px 4px;
 }
 .city-form {
   font-size: 22px;
