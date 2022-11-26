@@ -38,8 +38,7 @@ ul {
   margin-top: 15px;
 }
 li {
-  margin: 30px 0px;
-  padding: 0px 30px 0px 0px;
+  padding-right: 30px;
 }
 a {
   text-decoration: none;
@@ -91,7 +90,7 @@ a:hover {
   color: #038151;
   margin-left: 40px;
 }
-.lists {
+.forecast {
   margin: 45px 0px 30px 0px;
 }
 .temperature-today {
@@ -102,9 +101,10 @@ a:hover {
 .weather-list {
   border-right: 1px solid rgb(212, 211, 211);
 }
-.week-day {
+.forecast-date {
   font-weight: 500;
   font-style: italic;
+  margin-top: 30px;
 }
 .week-weather {
   font-style: italic;
@@ -127,4 +127,10 @@ h1 .active {
 }
 h1 .active:hover {
   text-decoration: none;
+}
+#forecast-icon {
+  padding-right: 30px;
+}
+.forecast-temp {
+  margin-bottom: 30px;
 }

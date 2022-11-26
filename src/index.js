@@ -78,6 +78,26 @@ function showCelsiusTemp(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
 }
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Tomorrow", "Thursday", "Friday", "Saturday", "Sunday"];
+  let forecastHTML = "";
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `  <ul class="weather-list">
+            <li class="forecast-date">${day}</li>
+            <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+            alt="" id="forecast-icon" />
+            <li class="forecast-temp">11/23℃</li>
+          </ul>
+          `;
+  });
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let celsiusTemp = null;
 
 let cityForm = document.querySelector(".city-form");
@@ -93,3 +113,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
 searchCity("Kyiv");
+displayForecast();
