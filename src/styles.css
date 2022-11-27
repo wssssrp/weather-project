@@ -135,3 +135,6 @@ h1 .active:hover {
 .forecast-temp {
   margin-bottom: 30px;
 }
+.weather-list:last-child {
+  border-right: none;
+}
