@@ -13,7 +13,7 @@ function formatDate(timestamp) {
     "Monday",
     "Tuesday",
     "Wednesday",
-    "Thursaday",
+    "Thursday",
     "Friday",
     "Saturday",
   ];
@@ -21,23 +21,54 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+
 function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Tomorrow", "Thursday", "Friday", "Saturday", "Sunday"];
   let forecastHTML = "";
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `  <ul class="weather-list">
-            <li class="forecast-date">${day}</li>
+  forecast.forEach(function (forecastDay, index) {
+    if (index > 0 && index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `  <ul class="weather-list">
+            <li class="forecast-date">${formatDay(forecastDay.time)}</li>
             <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+              forecastDay.condition.icon
+            }.png"
             alt="" id="forecast-icon" />
-            <li class="forecast-temp">11/23℃</li>
+            <li class="forecast-temp">
+            <span class="forecast-min-temp">${Math.round(
+              forecastDay.temperature.minimum
+            )}</span>/<span class="forecast-min-temp">${Math.round(
+          forecastDay.temperature.maximum
+        )}℃</span>
+            </li>
           </ul>
           `;
+    }
   });
   forecastElement.innerHTML = forecastHTML;
+  document.querySelector("#min-temperature-today").innerHTML = Math.round(
+    forecast[0].temperature.minimum
+  );
+  document.querySelector("#max-temperature-today").innerHTML = Math.round(
+    forecast[0].temperature.maximum
+  );
 }
 function getForecast(coordinates) {
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
