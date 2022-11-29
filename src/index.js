@@ -21,6 +21,28 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Tomorrow", "Thursday", "Friday", "Saturday", "Sunday"];
+  let forecastHTML = "";
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `  <ul class="weather-list">
+            <li class="forecast-date">${day}</li>
+            <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+            alt="" id="forecast-icon" />
+            <li class="forecast-temp">11/23℃</li>
+          </ul>
+          `;
+  });
+  forecastElement.innerHTML = forecastHTML;
+}
+function getForecast(coordinates) {
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 function showTemp(response) {
   document.querySelector("#current-date").innerHTML = formatDate(
     response.data.time * 1000
@@ -39,6 +61,7 @@ function showTemp(response) {
   document.querySelector("#wind-speed").innerHTML = Math.round(
     response.data.wind.speed
   );
+  getForecast(response.data.coordinates);
 }
 function searchCity(city) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
@@ -77,26 +100,25 @@ function showCelsiusTemp(event) {
   fahrenheitLink.classList.remove("active");
 }
 
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
-  let days = ["Tomorrow", "Thursday", "Friday", "Saturday", "Sunday"];
-  let forecastHTML = "";
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `  <ul class="weather-list">
-            <li class="forecast-date">${day}</li>
-            <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
-            alt="" id="forecast-icon" />
-            <li class="forecast-temp">11/23℃</li>
-          </ul>
-          `;
-  });
-  forecastElement.innerHTML = forecastHTML;
+function searchCityLondon() {
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=london&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemp);
 }
 
-let celsiusTemp = null;
+function searchCityWarsaw() {
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=warsaw&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemp);
+}
+
+function searchCityKyiv() {
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=kyiv&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemp);
+}
+
+function searchCityLisbon() {
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=lisbon&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemp);
+}
 
 let cityForm = document.querySelector(".city-form");
 cityForm.addEventListener("submit", handleSubmit);
@@ -110,34 +132,19 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
-function searchCityLondon() {
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=london&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemp);
-}
 let londonLink = document.querySelector("#london-link");
 londonLink.addEventListener("click", searchCityLondon);
 
-function searchCityWarsaw() {
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=warsaw&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemp);
-}
 let warsawLink = document.querySelector("#warsaw-link");
 warsawLink.addEventListener("click", searchCityWarsaw);
 
-function searchCityKyiv() {
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=kyiv&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemp);
-}
 let kyivLink = document.querySelector("#kyiv-link");
 kyivLink.addEventListener("click", searchCityKyiv);
 
-function searchCityLisbon() {
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=lisbon&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemp);
-}
 let lisbonLink = document.querySelector("#lisbon-link");
 lisbonLink.addEventListener("click", searchCityLisbon);
+
+let celsiusTemp = null;
 let apiKey = "81ob2btf7e18f4e07031046ab12afce1";
 
 searchCity("Kyiv");
-displayForecast();
