@@ -58,18 +58,19 @@ a:hover {
     rgb(255, 255, 255) 100%
   );
 }
-.city-hints {
+.cities-hints-div {
   text-align: end;
   margin-bottom: 8px;
   font-size: 20px;
   margin-right: 10px;
 }
-.cities {
+.city-hint {
   color: black;
   padding: 6px 4px;
 }
-.city-form {
+#city-form {
   font-size: 22px;
+  text-align: end;
 }
 .search-button {
   color: white;
@@ -80,41 +81,21 @@ a:hover {
 .search-button:hover {
   background-color: #3e80c2;
 }
-.chosen-city {
-  font-family: "Alkalami", serif;
-  font-size: 45px;
-  text-transform: uppercase;
-}
-.location {
+.today-city-temp-div {
   margin-top: -30px;
   text-align: left;
   color: #038151;
   margin-left: 40px;
 }
-.forecast {
-  margin: 35px 0px 30px 0px;
+#current-city {
+  font-family: "Alkalami", serif;
+  font-size: 45px;
+  text-transform: uppercase;
 }
 .temperature-today {
   font-size: 25px;
   padding: 10px;
   font-style: italic;
-}
-.weather-list {
-  border-right: 1px solid rgb(212, 211, 211);
-}
-.forecast-date {
-  font-weight: 500;
-  font-style: italic;
-  margin-top: 30px;
-}
-.week-weather {
-  font-style: italic;
-}
-.city-form {
-  text-align: end;
-}
-.github-link {
-  margin: 15px;
 }
 #weather-description {
   margin-right: -12px;
@@ -122,13 +103,26 @@ a:hover {
 #current-temp {
   margin-left: -15px;
 }
-
+.forecast {
+  margin: 35px 0px 30px 0px;
+}
+.weather-list {
+  border-right: 1px solid rgb(212, 211, 211);
+}
+.weather-list:last-child {
+  border-right: none;
+}
+.forecast-date {
+  font-weight: 500;
+  font-style: italic;
+  margin-top: 30px;
+}
 #forecast-icon {
   padding-right: 30px;
 }
 .forecast-temp {
   margin-bottom: 30px;
 }
-.weather-list:last-child {
-  border-right: none;
+.github-link {
+  margin: 15px;
 }

@@ -22,28 +22,26 @@
   </head>
   <body>
     <div class="container">
-      <section>
-        <div class="city-hints">
-          <a href="#" id="london-link" class="cities">London</a>
-          <a href="#" id="warsaw-link" class="cities">Warsaw</a>
-          <a href="#" id="kyiv-link" class="cities">Kyiv</a>
-          <a href="#" id="lisbon-link" class="cities">Lisbon</a>
-          <a href="#" id="location-link" class="cities">📍</a>
-        </div>
+      <div class="cities-hints-div">
+        <a href="#" id="london-link" class="city-hint">London</a>
+        <a href="#" id="warsaw-link" class="city-hint">Warsaw</a>
+        <a href="#" id="kyiv-link" class="city-hint">Kyiv</a>
+        <a href="#" id="lisbon-link" class="city-hint">Lisbon</a>
+        <a href="#" id="location-link" class="city-hint">📍</a>
+      </div>
+      <form id="city-form">
+        <input
+          type="search"
+          placeholder="Enter a city"
+          id="city-input"
+          autocomplete="off"
+        />
+        <input type="submit" value="Search" class="search-button" />
+      </form>
 
-        <form class="city-form">
-          <input
-            type="search"
-            placeholder="Enter a city"
-            class="city-field"
-            autocomplete="off"
-          />
-          <input type="submit" value="Search" class="search-button" />
-        </form>
-      </section>
-      <div class="location">
+      <div class="today-city-temp-div">
         <span class="temperature-today">Today</span>
-        <span class="chosen-city"></span>
+        <span id="current-city"></span>
         <span class="temperature-today">
           <span id="min-temperature-today"></span>/<span
             id="max-temperature-today"

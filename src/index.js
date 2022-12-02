@@ -79,7 +79,7 @@ function showTemp(response) {
     response.data.time * 1000
   );
   celsiusTemp = response.data.temperature.current;
-  document.querySelector(".chosen-city").innerHTML = response.data.city;
+  document.querySelector("#current-city").innerHTML = response.data.city;
   document.querySelector("#current-temp").innerHTML = Math.round(celsiusTemp);
   document.querySelector("#weather-description").innerHTML =
     response.data.condition.description;
@@ -100,7 +100,7 @@ function searchCity(city) {
 }
 function handleSubmit(event) {
   event.preventDefault();
-  let city = document.querySelector(".city-field").value;
+  let city = document.querySelector("#city-input").value;
   searchCity(city);
 }
 
@@ -135,7 +135,7 @@ function searchCityLisbon() {
   axios.get(apiUrl).then(showTemp);
 }
 
-let cityForm = document.querySelector(".city-form");
+let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", handleSubmit);
 
 let locationLink = document.querySelector("#location-link");
