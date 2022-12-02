@@ -115,22 +115,6 @@ function getGeolocation(event) {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-function showFahrenheitTemp(event) {
-  event.preventDefault();
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  document.querySelector("#current-temp").innerHTML =
-    Math.round(fahrenheitTemp);
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-}
-
-function showCelsiusTemp(event) {
-  event.preventDefault();
-  document.querySelector("#current-temp").innerHTML = Math.round(celsiusTemp);
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-}
-
 function searchCityLondon() {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=london&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemp);
@@ -157,12 +141,6 @@ cityForm.addEventListener("submit", handleSubmit);
 let locationLink = document.querySelector("#location-link");
 locationLink.addEventListener("click", getGeolocation);
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheitTemp);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", showCelsiusTemp);
-
 let londonLink = document.querySelector("#london-link");
 londonLink.addEventListener("click", searchCityLondon);
 
@@ -175,7 +153,6 @@ kyivLink.addEventListener("click", searchCityKyiv);
 let lisbonLink = document.querySelector("#lisbon-link");
 lisbonLink.addEventListener("click", searchCityLisbon);
 
-let celsiusTemp = null;
 let apiKey = "81ob2btf7e18f4e07031046ab12afce1";
 
 searchCity("Kyiv");
