@@ -34,11 +34,11 @@ p {
 ul {
   display: inline-block;
   list-style: none;
-  font-size: 25px;
+  font-size: 27px;
   margin-top: 15px;
 }
 li {
-  padding-right: 30px;
+  padding-right: 34px;
 }
 a {
   text-decoration: none;
@@ -92,7 +92,7 @@ a:hover {
   margin-left: 40px;
 }
 .forecast {
-  margin: 45px 0px 30px 0px;
+  margin: 35px 0px 30px 0px;
 }
 .temperature-today {
   font-size: 25px;
